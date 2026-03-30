@@ -35,31 +35,46 @@ jobs:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      # 2. Instala o pnpm (detecta versão do packageManager se houver)
+      # 2. Instala o pnpm (versão fixa para evitar incompatibilidades)
       - name: Instalar pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 9
+          run_install: false
 
-      # 3. Configura o Node.js 22 LTS com cache do pnpm
+      # 3. Configura o Node.js 22 LTS (SEM cache integrado do setup-node,
+      #    pois ele falha ao resolver o store path do pnpm)
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: "pnpm"
-          cache-dependency-path: client/pnpm-lock.yaml
 
-      # 4. Configura o GitHub Pages e obtém a URL base
+      # 4. Descobre o caminho do store do pnpm para o cache manual
+      - name: Obter caminho do store pnpm
+        id: pnpm-cache
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
+
+      # 5. Cache manual do store do pnpm (substitui o cache do setup-node)
+      - name: Cache do store pnpm
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('client/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      # 6. Configura o GitHub Pages e obtém a URL base
       - name: Configurar GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      # 5. Instala as dependências do projeto
+      # 7. Instala as dependências do projeto
       - name: Instalar dependências
         working-directory: ./client
         run: pnpm install --frozen-lockfile
 
-      # 6. Gera o build estático usando vinext (vite build)
+      # 8. Gera o build estático usando vinext (vite build)
       #    O NEXT_PUBLIC_BASE_PATH é lido pelo next.config.mjs (basePath)
       #    e pelo vite.config.ts (base), garantindo que todos os assets
       #    e rotas funcionem corretamente no subpath do GitHub Pages.
@@ -69,12 +84,12 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
-      # 7. Cria um .nojekyll para evitar que o GitHub processe
-      #    arquivos com underscore (ex: _next/) via Jekyll
+      # 9. Cria .nojekyll para evitar que o GitHub ignore
+      #    diretórios com underscore (ex: _next/) via Jekyll
       - name: Criar .nojekyll
         run: touch ./client/dist/client/.nojekyll
 
-      # 8. Faz upload dos arquivos buildados como artefato do Pages
+      # 10. Faz upload dos arquivos buildados como artefato do Pages
       - name: Upload artefato para o Pages
         uses: actions/upload-pages-artifact@v3
         with:
