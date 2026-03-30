@@ -1,17 +1,10 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import type { Metadata } from "next";
+import "./globals.css";
 
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
-
-const geistHeading = Geist({subsets:['latin'],variable:'--font-heading'});
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+export const metadata: Metadata = {
+  title: "Client Portal | Access Control",
+  description: "Secure static individual portals for premium partners | Accesso sicuro ai portali statici per partner premium.",
+};
 
 export default function RootLayout({
   children,
@@ -19,14 +12,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable, geistHeading.variable)}
-    >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="it">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
+      <body className="antialiased">
+        {children}
       </body>
     </html>
-  )
+  );
 }

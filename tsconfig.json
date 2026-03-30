@@ -18,13 +18,16 @@
         "name": "next"
       }
     ],
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./*"]
     }
   },
   "include": [
     "next-env.d.ts",
+    "css.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
