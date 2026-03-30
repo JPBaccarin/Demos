@@ -59,20 +59,36 @@ jobs:
         working-directory: ./client
         run: pnpm install --frozen-lockfile
 
-      # 6. Gera o build estático usando vinext (vite build)
+      # 6. Gera o build de produção usando vinext (vite build)
       #    O NEXT_PUBLIC_BASE_PATH é lido pelo next.config.mjs (basePath)
       #    e pelo vite.config.ts (base), garantindo que todos os assets
       #    e rotas funcionem corretamente no subpath do GitHub Pages.
-      - name: Build estático com vinext
+      - name: Build com vinext
         working-directory: ./client
         run: pnpm build:vinext
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
-      # 7. Cria um .nojekyll para evitar que o GitHub processe
-      #    arquivos com underscore (ex: _next/) via Jekyll
-      - name: Criar .nojekyll
-        run: touch ./client/dist/client/.nojekyll
+      # 7. Monta o diretório final para deploy estático
+      #    O vinext gera os assets em dist/client/ — precisamos
+      #    garantir que um index.html existe para o GitHub Pages servir.
+      #    Também cria .nojekyll para evitar que o GitHub processe
+      #    arquivos com underscore (ex: _next/, assets/) via Jekyll.
+      - name: Preparar diretório de deploy
+        working-directory: ./client
+        run: |
+          # Cria .nojekyll para evitar processamento desnecessário do Jekyll
+          touch dist/client/.nojekyll
+
+          # Se o vinext não gerou um index.html na raiz do client,
+          # verifica se existe em dist/ e copia para dist/client/
+          if [ ! -f dist/client/index.html ] && [ -f dist/index.html ]; then
+            cp dist/index.html dist/client/
+          fi
+
+          # Lista o conteúdo final para debug no log do Actions
+          echo "📦 Conteúdo do diretório de deploy:"
+          ls -la dist/client/
 
       # 8. Faz upload dos arquivos buildados como artefato do Pages
       - name: Upload artefato para o Pages
