@@ -42,7 +42,6 @@ jobs:
           version: latest
 
       # 3. Configura o Node.js 22 LTS com cache do pnpm
-      #    Usa wildcard para encontrar o lockfile independente da localização
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
@@ -57,7 +56,6 @@ jobs:
 
       # 5. Instala as dependências do projeto
       - name: Instalar dependências
-        working-directory: ./client
         run: pnpm install --frozen-lockfile
 
       # 6. Gera o build de produção usando vinext (vite build)
@@ -65,7 +63,6 @@ jobs:
       #    e pelo vite.config.ts (base), garantindo que todos os assets
       #    e rotas funcionem corretamente no subpath do GitHub Pages.
       - name: Build com vinext
-        working-directory: ./client
         run: pnpm build:vinext
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
@@ -74,7 +71,6 @@ jobs:
       #    Cria .nojekyll para evitar que o GitHub processe
       #    arquivos com underscore (ex: assets/) via Jekyll.
       - name: Preparar diretório de deploy
-        working-directory: ./client
         run: |
           touch dist/client/.nojekyll
 
@@ -90,7 +86,7 @@ jobs:
       - name: Upload artefato para o Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./client/dist/client/
+          path: ./dist/client/
 
   # ─────────────────────────────────────────
   # Job 2: Deploy no GitHub Pages
