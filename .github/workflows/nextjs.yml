@@ -1,5 +1,5 @@
 # ============================================================
-# Deploy automático no GitHub Pages via vinext (Vite)
+# Deploy automático no GitHub Pages via Next.js (static export)
 # Disparado a cada push na branch "main"
 # ============================================================
 name: Deploy para GitHub Pages
@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   # ─────────────────────────────────────────
-  # Job 1: Build estático com vinext (Vite)
+  # Job 1: Build estático com Next.js
   # ─────────────────────────────────────────
   build:
     name: Build
@@ -58,35 +58,29 @@ jobs:
       - name: Instalar dependências
         run: pnpm install --frozen-lockfile
 
-      # 6. Gera o build de produção usando vinext (vite build)
-      #    O NEXT_PUBLIC_BASE_PATH é lido pelo next.config.mjs (basePath)
-      #    e pelo vite.config.ts (base), garantindo que todos os assets
-      #    e rotas funcionem corretamente no subpath do GitHub Pages.
-      - name: Build com vinext
-        run: pnpm build:vinext
+      # 6. Gera o build estático com Next.js
+      #    O next.config.mjs usa output: 'export' que gera
+      #    todos os HTMLs e assets no diretório "out/"
+      #    O NEXT_PUBLIC_BASE_PATH configura o basePath para
+      #    funcionar corretamente no subpath do GitHub Pages.
+      - name: Build estático com Next.js
+        run: pnpm build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
-      # 7. Prepara o diretório final para deploy estático
-      #    Cria .nojekyll para evitar que o GitHub processe
-      #    arquivos com underscore (ex: assets/) via Jekyll.
+      # 7. Cria .nojekyll para evitar que o GitHub processe
+      #    arquivos com underscore (ex: _next/) via Jekyll
       - name: Preparar diretório de deploy
         run: |
-          touch dist/client/.nojekyll
-
-          # Fallback: copia index.html se não estiver em dist/client/
-          if [ ! -f dist/client/index.html ] && [ -f dist/index.html ]; then
-            cp dist/index.html dist/client/
-          fi
-
+          touch out/.nojekyll
           echo "📦 Conteúdo do diretório de deploy:"
-          ls -la dist/client/
+          ls -la out/
 
       # 8. Faz upload dos arquivos buildados como artefato do Pages
       - name: Upload artefato para o Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/client/
+          path: ./out/
 
   # ─────────────────────────────────────────
   # Job 2: Deploy no GitHub Pages
