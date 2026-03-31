@@ -35,20 +35,20 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Cliente 2 - Cyber/Modern Style (Em breve — rota ainda não disponível) */}
-          <div className="group relative block aspect-16/10 overflow-hidden rounded-2xl border border-white/5 bg-linear-to-br from-[#051a1a] to-[#050505] p-1 opacity-50 cursor-not-allowed">
-             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff11_1px,transparent_1px)] bg-size-[20px_20px]"></div>
+          {/* Cliente 2 - Mama Restaurant — Editorial/Luxury Style */}
+          <Link href="/clientes/mama-demo" className="group relative block aspect-16/10 overflow-hidden rounded-2xl border border-white/5 bg-linear-to-br from-[#0a0a05] to-[#050505] p-1 transition-all hover:scale-[1.01] active:scale-[0.99] hover:border-yellow-700/30">
+             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] bg-size-[20px_20px]"></div>
             <div className="relative h-full w-full rounded-[14px] bg-[#00000030] p-10 flex flex-col justify-between">
               <div className="space-y-4">
-                <span className="text-xs font-mono text-cyan-500/60 uppercase tracking-[0.4em]">Em Breve</span>
-                <h2 className="text-4xl font-mono font-bold text-cyan-100 italic">CLIENT_002</h2>
+                <span className="text-xs font-serif italic text-yellow-600/60 uppercase tracking-widest border-b border-yellow-600/20 pb-1">Private Access</span>
+                <h2 className="text-4xl font-serif text-yellow-200">CLIENTE 2</h2>
               </div>
               <div className="space-y-2">
-                <p className="text-sm font-mono text-white/30 lowercase tracking-tighter">IT: Interfaccia futurista scalabile.</p>
-                <p className="text-sm font-mono text-white/30 lowercase tracking-tighter">EN: Scalable futuristic interface.</p>
+                <p className="text-sm font-light text-white/40 italic">IT: Redesign premium per ristorante italiano.</p>
+                <p className="text-sm font-light text-white/40 italic">EN: Premium redesign for Italian restaurant.</p>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
