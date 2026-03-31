@@ -1,59 +1,110 @@
 import Link from 'next/link';
+import fs from 'fs';
+import path from 'path';
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] text-white p-6 md:p-24 overflow-hidden relative">
-      {/* Background decoration */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/10 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-amber-900/10 blur-[120px] rounded-full"></div>
+  const clientesDir = path.join(process.cwd(), 'app', 'clientes');
+  
+  let clients: { id: string; name: string; href: string }[] = [];
+  
+  try {
+    if (fs.existsSync(clientesDir)) {
+      const items = fs.readdirSync(clientesDir, { withFileTypes: true });
+      clients = items
+        .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('.'))
+        .map(dirent => {
+          // Format folder name: "mama-demo" -> "Mama Demo"
+          const formattedName = dirent.name
+            .replace(/-/g, ' ')
+            .replace(/\b\w/g, (char) => char.toUpperCase());
+            
+          return {
+            id: dirent.name,
+            name: formattedName,
+            href: `/clientes/${dirent.name}`
+          };
+        });
+    }
+  } catch (error) {
+    console.error("Erro ao ler o diretório de clientes:", error);
+  }
 
-      <div className="z-10 w-full max-w-6xl space-y-16">
-        <header className="text-center space-y-4">
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter uppercase italic leading-none inline-block border-b-8 border-white/10 pb-4">
-            CLIENTS<br/><span className="text-white/20">PORTAL</span>
-          </h1>
-          <div className="flex justify-center gap-8 text-xs font-mono tracking-[0.3em] uppercase text-white/40">
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#0a0a0a] text-white p-6 md:p-12 lg:p-24 overflow-hidden relative">
+      {/* Background decoration */}
+      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#cfb48f]/10 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#b87d4b]/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div className="z-10 w-full max-w-7xl flex flex-col gap-16">
+        <header className="text-center md:text-left space-y-4 border-b border-white/10 pb-12">
+          <div className="flex items-center justify-center md:justify-start gap-4 text-xs font-mono tracking-[0.3em] uppercase text-white/40 mb-4">
             <span>[ EN ] ENGLISH</span>
             <span className="text-white/10">•</span>
-            <span>[ IT ] ITALIANO</span>
+            <span>[ PT ] PORTUGUÊS</span>
           </div>
+          <h1 className="text-5xl md:text-8xl font-serif italic font-light tracking-tight text-white/90">
+            Client <span className="text-[#cfb48f] block md:inline">Portal</span>
+          </h1>
+          <p className="text-lg md:text-xl font-light text-white/50 max-w-2xl mt-4">
+            Acesso dinâmico às apresentações e interfaces das marcas parceiras.
+          </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
-          {/* Cliente 1 - Luxurious/Classic Style */}
-          <Link href="/clientes/ritrovo-demo" className="group relative block aspect-16/10 overflow-hidden rounded-2xl border border-white/5 bg-linear-to-br from-[#1a0a0a] to-[#0a0505] p-1 transition-all hover:scale-[1.01] active:scale-[0.99] hover:border-amber-500/30">
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-paper.png')] opacity-20"></div>
-            <div className="relative h-full w-full rounded-[14px] bg-[#00000030] p-10 flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-serif italic text-amber-500/60 uppercase tracking-widest border-b border-amber-500/20 pb-1">Private Access</span>
-                <h2 className="text-4xl font-serif text-amber-200">CLIENTE 1</h2>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm font-light text-white/40 italic">IT: Accesso esclusivo per il Cliente 1. Design classico.</p>
-                <p className="text-sm font-light text-white/40 italic">EN: Exclusive access for Client 1. Classic design.</p>
-              </div>
-            </div>
-          </Link>
+        {clients.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {clients.map((client, i) => {
+              // Alternate a bit for visual variety
+              const color = i % 2 === 0 ? "cfb48f" : "b87d4b";
+              const hoverColorClass = i % 2 === 0 ? "hover:border-[#cfb48f]/40 hover:shadow-[#cfb48f]/5" : "hover:border-[#b87d4b]/40 hover:shadow-[#b87d4b]/5";
+              const textColorClass = i % 2 === 0 ? "group-hover:text-[#cfb48f]" : "group-hover:text-[#b87d4b]";
+              const badgeClass = i % 2 === 0 
+                ? "bg-white/5 text-[#cfb48f] border-[#cfb48f]/20" 
+                : "bg-[#b87d4b]/10 text-[#b87d4b] border-[#b87d4b]/30";
 
-          {/* Cliente 2 - Mama Restaurant — Editorial/Luxury Style */}
-          <Link href="/clientes/mama-demo" className="group relative block aspect-16/10 overflow-hidden rounded-2xl border border-white/5 bg-linear-to-br from-[#0a0a05] to-[#050505] p-1 transition-all hover:scale-[1.01] active:scale-[0.99] hover:border-yellow-700/30">
-             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] bg-size-[20px_20px]"></div>
-            <div className="relative h-full w-full rounded-[14px] bg-[#00000030] p-10 flex flex-col justify-between">
-              <div className="space-y-4">
-                <span className="text-xs font-serif italic text-yellow-600/60 uppercase tracking-widest border-b border-yellow-600/20 pb-1">Private Access</span>
-                <h2 className="text-4xl font-serif text-yellow-200">CLIENTE 2</h2>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm font-light text-white/40 italic">IT: Redesign premium per ristorante italiano.</p>
-                <p className="text-sm font-light text-white/40 italic">EN: Premium redesign for Italian restaurant.</p>
-              </div>
-            </div>
-          </Link>
-        </div>
+              return (
+                <Link 
+                  key={client.id} 
+                  href={client.href} 
+                  className={`group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-white/10 hover:shadow-2xl ${hoverColorClass}`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent pointer-events-none z-0"></div>
+                  
+                  <div className="relative z-10 flex-col h-full flex gap-12">
+                    <div className="space-y-4">
+                      <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border ${badgeClass}`}>
+                        Client Project
+                      </span>
+                      <h2 className={`text-3xl font-serif text-white transition-colors ${textColorClass}`}>
+                        {client.name}
+                      </h2>
+                      <h3 className="text-sm font-light text-white/40 font-mono tracking-wider">
+                        {client.id}
+                      </h3>
+                    </div>
+                    
+                    <div className="mt-auto space-y-6">
+                      <p className="text-sm font-light text-white/60 leading-relaxed">
+                        Design interface and deployment automatically synced from workspace.
+                      </p>
+                      <div className={`inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-white uppercase transition-colors ${textColorClass}`}>
+                        Acessar Demonstração <span className="group-hover:translate-x-2 transition-transform">→</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-20 text-white/40 font-mono italic">
+            Nenhum projeto encontrado no diretório /clientes...
+          </div>
+        )}
       </div>
 
-      <footer className="fixed bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-mono text-white/10 uppercase tracking-[0.5em]">
-        © 2026 STATIC_PORTAL // ALL_RIGHTS_RESERVED
+      <footer className="w-full max-w-7xl mt-24 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs text-white/30 font-mono uppercase tracking-[0.2em]">
+        <span>© 2026 Agência Digital // Direitos Reservados</span>
+        <span className="mt-4 md:mt-0 opacity-50">Construído em Next.js Static Export</span>
       </footer>
     </main>
   );
