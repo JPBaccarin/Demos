@@ -40,6 +40,13 @@
 
     --font-sans: "Be Vietnam Pro", sans-serif;
     --font-serif: "Noto Serif", serif;
+
+    /* Cores CAD Architetto Global */
+    --cad-fundo: #FAFAFA;
+    --cad-primaria: #9D5415;
+    --cad-secundaria: #3A4521;
+    --cad-texto: #0F1A07;
+    --cad-destaque: #C28E51;
 }
 
 .dark {
@@ -111,6 +118,11 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
+    --color-cad-fundo: var(--cad-fundo);
+    --color-cad-primaria: var(--cad-primaria);
+    --color-cad-secundaria: var(--cad-secundaria);
+    --color-cad-texto: var(--cad-texto);
+    --color-cad-destaque: var(--cad-destaque);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
