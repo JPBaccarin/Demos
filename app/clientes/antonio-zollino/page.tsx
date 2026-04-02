@@ -1,5 +1,6 @@
 import { RiMailLine, RiPhoneLine, RiMapPinLine, RiArrowRightLine, RiBriefcaseLine, RiBuilding2Line, RiPencilRuler2Line, RiToolsLine } from "@remixicon/react";
 import Image from "next/image";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 // Importação estática de imagens para melhor performance e tipagem
 import HeroImage from "./assets/hero.png";
@@ -10,10 +11,14 @@ import BlueprintImage from "./assets/blueprint.png";
 /**
  * Antonio Zollino - Redesign de Site Premium
  * Estúdio de Engenharia e Arquitetura em Salento, Itália.
- * Este componente representa a nova presença digital do estúdio, focada em luxo,
- * precisão técnica e elegância arquitetônica italiana.
+ * 
+ * Melhoras mobile:
+ * - Menu lateral funcional com Sheet (Shadcn)
+ * - Tipografia responsiva otimizada
+ * - Componentes de UI consistentes
  * 
  * @author Antigravity
+ * @language Portuguese (Comments) / Italian (Content)
  */
 export default function AntonioZollinoPage() {
   return (
@@ -38,10 +43,71 @@ export default function AntonioZollinoPage() {
             <a href="#contatti" className="px-6 py-3 bg-[#0e7490] text-white hover:bg-[#155e75] transition-all">Consulenza</a>
           </div>
           
-          <button className="lg:hidden" aria-label="Abrir Menu">
-            <div className="w-6 h-px bg-[#0f172a] mb-1.5"></div>
-            <div className="w-6 h-px bg-[#0f172a]"></div>
-          </button>
+          {/* MENU MOBILE (HIDDEN ON DESKTOP) */}
+          <div className="lg:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button 
+                  className="flex flex-col items-end gap-1.5 p-2 transition-all active:scale-95" 
+                  aria-label="Abrir Menu"
+                >
+                  <div className="w-8 h-0.5 bg-[#0e7490]"></div>
+                  <div className="w-5 h-0.5 bg-[#0e7490]"></div>
+                  <div className="w-6 h-0.5 bg-[#0e7490]"></div>
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[85vw] border-l border-[#0e7490]/10 bg-[#f8fafc] p-0 sm:w-[400px]">
+                <div className="flex h-full flex-col">
+                  <div className="flex items-center justify-between border-b border-[#0e7490]/5 p-8">
+                    <div className="flex items-center gap-3">
+                      <div className="h-10 w-0.5 bg-[#0e7490]"></div>
+                      <div className="flex flex-col leading-none">
+                        <span className="font-serif text-lg font-medium tracking-tight uppercase">Antonio Zollino</span>
+                        <span className="text-[10px] font-medium tracking-widest text-[#475569] uppercase">Architecture</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <nav className="flex flex-1 flex-col gap-1 p-8">
+                    {[
+                      { name: "Home", href: "#hero" },
+                      { name: "Lo Studio", href: "#studio" },
+                      { name: "Servizi", href: "#servizi" },
+                      { name: "Progetti", href: "#progetti" },
+                    ].map((item) => (
+                      <SheetClose asChild key={item.name}>
+                        <a 
+                          href={item.href} 
+                          className="flex items-center justify-between py-6 text-sm font-bold tracking-[0.2em] uppercase text-[#0f172a] transition-colors hover:text-[#0e7490] border-b border-[#0e7490]/5"
+                        >
+                          {item.name}
+                          <RiArrowRightLine className="h-4 w-4 opacity-30" />
+                        </a>
+                      </SheetClose>
+                    ))}
+                    <div className="mt-auto pt-12">
+                      <SheetClose asChild>
+                        <a 
+                          href="#contatti" 
+                          className="flex w-full items-center justify-center gap-4 bg-[#0e7490] py-6 text-[11px] font-bold tracking-[0.3em] text-white uppercase active:bg-[#155e75] transition-all"
+                        >
+                          RICHIEDI CONSULENZA
+                          <RiArrowRightLine className="h-4 w-4" />
+                        </a>
+                      </SheetClose>
+                    </div>
+                  </nav>
+                  
+                  <div className="p-8 pb-12 text-center border-t border-[#0e7490]/5">
+                    <div className="flex justify-center gap-8 mb-8">
+                       {/* Redes sociais placeholder se necessário */}
+                    </div>
+                    <p className="text-[9px] tracking-widest text-[#64748b] uppercase">Muro Leccese, Salento (LE)</p>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </nav>
 
@@ -65,19 +131,19 @@ export default function AntonioZollinoPage() {
                 <span className="h-px w-12 bg-[#0e7490]"></span>
                 <span className="text-[12px] font-medium tracking-[0.3em] uppercase text-[#475569]">Muro Leccese, Salento</span>
             </div>
-            <h1 className="mb-8 font-serif text-5xl leading-[1.1] md:text-7xl lg:text-8xl font-light text-[#0f172a]">
-              Ingegneria Civile, <br />
-              Architettura e Restauro
+            <h1 className="mb-8 font-serif text-4xl leading-[1.2] sm:text-5xl md:text-7xl lg:text-8xl font-light text-[#0f172a]">
+              Ingegneria Civile, <br className="hidden sm:block" />
+              Architettura <span className="sm:hidden">& </span>e Restauro
             </h1>
-            <p className="mb-10 max-w-xl text-lg md:text-xl text-[#444] leading-relaxed">
+            <p className="mb-10 max-w-xl text-md md:text-xl text-[#444] leading-relaxed">
               "La progettazione nasce da uno studio approfondito degli spazi e dai feedback del cliente."
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contatti" className="group flex items-center justify-between gap-8 bg-[#0e7490] px-8 py-5 text-sm font-medium tracking-widest text-white transition-all hover:bg-[#155e75]">
+              <a href="#contatti" className="group flex items-center justify-between gap-8 bg-[#0e7490] px-8 py-5 text-sm font-medium tracking-widest text-white transition-all hover:bg-[#155e75] active:scale-[0.98]">
                 <span>RICHIEDI UNA CONSULENZA</span>
                 <RiArrowRightLine className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="#progetti" className="flex items-center justify-center border border-[#0e7490]/20 px-8 py-5 text-sm font-medium tracking-widest transition-all hover:bg-[#f1f5f9]">
+              <a href="#progetti" className="flex items-center justify-center border border-[#0e7490]/20 px-8 py-5 text-sm font-medium tracking-widest transition-all hover:bg-[#f1f5f9] active:scale-[0.98]">
                 VEDI PROGETTI
               </a>
             </div>
@@ -140,10 +206,10 @@ export default function AntonioZollinoPage() {
             <h3 className="font-serif text-4xl md:text-5xl text-[#0f172a]">Aree di Intervento</h3>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Urbanistica */}
-            <div className="group bg-white p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm">
-              <RiMapPinLine className="mb-8 h-10 w-10 text-[#0e7490] group-hover:text-white" />
+            <div className="group bg-white p-8 sm:p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm active:bg-[#0e7490] active:text-white">
+              <RiMapPinLine className="mb-6 sm:mb-8 h-8 w-8 sm:h-10 sm:w-10 text-[#0e7490] group-hover:text-white group-active:text-white" />
               <h4 className="mb-4 font-serif text-xl">Urbanistica e Territorio</h4>
               <ul className="space-y-3 text-sm opacity-80">
                 <li>• Pianificazione</li>
@@ -153,8 +219,8 @@ export default function AntonioZollinoPage() {
             </div>
             
             {/* Ingegneria */}
-            <div className="group bg-white p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm">
-              <RiToolsLine className="mb-8 h-10 w-10 text-[#0e7490] group-hover:text-white" />
+            <div className="group bg-white p-8 sm:p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm active:bg-[#0e7490] active:text-white">
+              <RiToolsLine className="mb-6 sm:mb-8 h-8 w-8 sm:h-10 sm:w-10 text-[#0e7490] group-hover:text-white group-active:text-white" />
               <h4 className="mb-4 font-serif text-xl">Ingegneria Civile</h4>
               <ul className="space-y-3 text-sm opacity-80">
                 <li>• Analisi strutturale</li>
@@ -164,8 +230,8 @@ export default function AntonioZollinoPage() {
             </div>
             
             {/* Architettura */}
-            <div className="group bg-white p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm">
-              <RiPencilRuler2Line className="mb-8 h-10 w-10 text-[#0e7490] group-hover:text-white" />
+            <div className="group bg-white p-8 sm:p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm active:bg-[#0e7490] active:text-white">
+              <RiPencilRuler2Line className="mb-6 sm:mb-8 h-8 w-8 sm:h-10 sm:w-10 text-[#0e7490] group-hover:text-white group-active:text-white" />
               <h4 className="mb-4 font-serif text-xl">Progettazione Architettonica</h4>
               <ul className="space-y-3 text-sm opacity-80">
                 <li>• Progettazione Esecutiva</li>
@@ -175,8 +241,8 @@ export default function AntonioZollinoPage() {
             </div>
             
             {/* Direzione */}
-            <div className="group bg-white p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm">
-              <RiBriefcaseLine className="mb-8 h-10 w-10 text-[#0e7490] group-hover:text-white" />
+            <div className="group bg-white p-8 sm:p-10 transition-all hover:bg-[#0e7490] hover:text-white border-t-2 border-transparent hover:border-[#155e75] shadow-sm active:bg-[#0e7490] active:text-white">
+              <RiBriefcaseLine className="mb-6 sm:mb-8 h-8 w-8 sm:h-10 sm:w-10 text-[#0e7490] group-hover:text-white group-active:text-white" />
               <h4 className="mb-4 font-serif text-xl">Direzione e Realizzazione</h4>
               <ul className="space-y-3 text-sm opacity-80">
                 <li>• Direzione lavori</li>
@@ -196,11 +262,11 @@ export default function AntonioZollinoPage() {
               <h2 className="mb-4 text-sm font-bold tracking-[0.2em] uppercase text-[#0e7490]">Portfolio Selezionato</h2>
               <h3 className="font-serif text-4xl md:text-5xl">Progetti di Prestigio</h3>
             </div>
-            <div className="flex gap-4 text-[12px] font-medium tracking-widest uppercase">
-                <span className="cursor-pointer border-b border-[#0e7490] pb-1">TUTTI</span>
-                <span className="cursor-pointer text-[#64748b] hover:text-white transition-colors">RESTAURO</span>
-                <span className="cursor-pointer text-[#64748b] hover:text-white transition-colors">RESIDENZIALE</span>
-                <span className="cursor-pointer text-[#64748b] hover:text-white transition-colors">PISCINE</span>
+            <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar text-[12px] font-medium tracking-widest uppercase md:overflow-visible md:pb-0">
+                <span className="cursor-pointer border-b border-[#0e7490] pb-1 whitespace-nowrap">TUTTI</span>
+                <span className="cursor-pointer text-[#64748b] hover:text-white transition-colors whitespace-nowrap">RESTAURO</span>
+                <span className="cursor-pointer text-[#64748b] hover:text-white transition-colors whitespace-nowrap">RESIDENZIALE</span>
+                <span className="cursor-pointer text-[#64748b] hover:text-white transition-colors whitespace-nowrap">PISCINE</span>
             </div>
           </div>
           
@@ -332,24 +398,24 @@ export default function AntonioZollinoPage() {
               </div>
             </div>
             
-            <div className="bg-white p-12 shadow-sm">
+            <div className="bg-white p-8 sm:p-12 shadow-sm">
                 <form className="space-y-8">
                     <div className="space-y-2 border-b border-[#0e7490]/10 pb-4">
                         <label className="text-[10px] tracking-widest uppercase text-[#475569]">Nome Completo</label>
-                        <input type="text" className="w-full bg-transparent outline-none py-2 text-lg font-serif" placeholder="Il suo nome" />
+                        <input type="text" className="w-full bg-transparent outline-none py-2 text-md sm:text-lg font-serif" placeholder="Il suo nome" />
                     </div>
                     <div className="space-y-2 border-b border-[#0e7490]/10 pb-4">
                         <label className="text-[10px] tracking-widest uppercase text-[#475569]">Email</label>
-                        <input type="email" className="w-full bg-transparent outline-none py-2 text-lg font-serif" placeholder="Indirizzo email" />
+                        <input type="email" className="w-full bg-transparent outline-none py-2 text-md sm:text-lg font-serif" placeholder="Indirizzo email" />
                     </div>
                     <div className="space-y-2 border-b border-[#0e7490]/10 pb-4">
                         <label className="text-[10px] tracking-widest uppercase text-[#475569]">Messaggio</label>
-                        <textarea className="w-full bg-transparent outline-none py-2 text-lg font-serif h-32 resize-none" placeholder="Descriva il suo projeto"></textarea>
+                        <textarea className="w-full bg-transparent outline-none py-2 text-md sm:text-lg font-serif h-32 resize-none" placeholder="Descriva il suo projeto"></textarea>
                     </div>
-                    <button className="w-full bg-[#0e7490] py-6 text-sm font-medium tracking-[0.3em] text-white hover:bg-[#155e75] transition-all">
+                    <button className="w-full bg-[#0e7490] py-6 text-sm font-medium tracking-[0.3em] text-white hover:bg-[#155e75] active:scale-[0.99] transition-all">
                         INVIA RICHIESTA
                     </button>
-                    <p className="text-[10px] text-center text-[#475569] px-8">
+                    <p className="text-[10px] text-center text-[#475569] px-4 sm:px-8">
                         La informiamo che i suoi dati saranno trattati con la máxima riservatezza secondo as normativas vigentes.
                     </p>
                 </form>
@@ -375,6 +441,16 @@ export default function AntonioZollinoPage() {
             </div>
         </div>
       </footer>
+      {/* BOTAO FLUTUANTE MOBILE - ACESSIBILIDADE E FUNCIONALIDADE */}
+      <div className="fixed bottom-6 right-6 z-40 lg:hidden">
+        <a 
+          href="tel:0836342099" 
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0e7490] text-white shadow-2xl shadow-[#0e7490]/40 transition-transform active:scale-90"
+          aria-label="Chiamaci ora"
+        >
+          <RiPhoneLine size={24} />
+        </a>
+      </div>
     </div>
   );
 }
