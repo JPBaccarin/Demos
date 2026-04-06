@@ -1,0 +1,1271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<squirrelscan-audit version="0.0.38">
+  <site>
+    <url>http://www.landscapemaintenanceuk.com</url>
+    <pages-crawled>10</pages-crawled>
+    <audit-date>2026-04-06T22:48:37.726Z</audit-date>
+  </site>
+  <health-score overall="35" grade="F">
+    <category name="Performance" score="58"/>
+    <category name="Accessibility" score="80"/>
+    <category name="Images" score="55"/>
+    <category name="Mobile" score="48"/>
+    <category name="Security" score="58"/>
+    <category name="Core SEO" score="77"/>
+    <category name="Content" score="72"/>
+    <category name="Internationalization" score="44"/>
+    <category name="Legal Compliance" score="44"/>
+    <category name="E-E-A-T" score="84"/>
+    <category name="Crawlability" score="94"/>
+    <category name="Analytics" score="100"/>
+    <category name="Links" score="100"/>
+    <category name="URL Structure" score="100"/>
+  </health-score>
+  <summary passed="633" warnings="262" failed="83"/>
+  <issues>
+    <category name="Crawlability" errors="0" warnings="1">
+      <rule id="crawl/robots-txt" severity="error">
+        <name>Robots.txt</name>
+        <description>Checks if robots.txt exists and is properly configured</description>
+        <solution>robots.txt tells search engines which pages to crawl. Place it at the root of your domain (example.com/robots.txt). Include your sitemap URL. Avoid blocking important resources (CSS, JS, images) that search engines need to render pages. Never use &apos;Disallow: /&apos; unless you want to block all crawling. Use Google Search Console to test your robots.txt.</solution>
+        <check name="robots-txt-exists" status="warn">
+          <message>No robots.txt found</message>
+        </check>
+      </rule>
+    </category>
+    <category name="Core SEO" errors="0" warnings="60">
+      <rule id="core/meta-title" severity="error">
+        <name>Meta Title</name>
+        <description>Validates page title presence and length</description>
+        <solution>Every page needs a unique, descriptive title tag between 30-60 characters. Titles appear in browser tabs, search results, and social shares. Write titles that accurately describe the page content while including your primary keyword near the beginning. If your title is too short, add more descriptive context. If too long, prioritize the most important information first and trim secondary details. Avoid keyword stuffing or duplicate titles across pages.</solution>
+        <check name="meta-title" status="warn">
+          <message>Title too short</message>
+          <affected-pages count="6">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="6">
+            <item id="http://www.landscapemaintenanceuk.com/about">
+              <label>Landscape Maintenance UK (24 chars)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/contact">
+              <label>Landscape Maintenance UK (24 chars)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton">
+              <label>Landscape Maintenance UK (24 chars)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton">
+              <label>Landscape Maintenance UK (24 chars)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grass-management-northampton">
+              <label>Grass Management Northampton (28 chars)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/testimonials">
+              <label>Landscape Maintenance UK (24 chars)</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="core/h1" severity="error">
+        <name>H1 Tag</name>
+        <description>Validates H1 tag presence and uniqueness</description>
+        <solution>Each page should have exactly one H1 tag that clearly describes the main topic. The H1 is the primary heading users and search engines see, and it should align with the page title while being more detailed. If missing, add an H1 at the top of your main content. If you have multiple H1s, demote extras to H2 or lower. Ensure the H1 is descriptive and contains relevant keywords naturally.</solution>
+        <check name="h1" status="warn">
+          <message>Multiple H1 tags found (4)</message>
+          <affected-pages count="1">
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+          </affected-pages>
+          <items count="1">
+            <item id="http://www.landscapemaintenanceuk.com/">
+              <label>Multiple H1 tags found (4)</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="core/meta-description" severity="error">
+        <name>Meta Description</name>
+        <description>Validates meta description presence and length</description>
+        <solution>Meta descriptions should be 120-160 characters and provide a compelling summary of the page. While not a direct ranking factor, good descriptions improve click-through rates from search results. Write unique descriptions for each page that accurately preview the content. Include a call-to-action when appropriate. If missing, search engines will auto-generate snippets which may not represent your page optimally.</solution>
+        <check name="meta-description" status="warn">
+          <message>Description too short</message>
+          <affected-pages count="2">
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+          </affected-pages>
+          <items count="2">
+            <item id="http://www.landscapemaintenanceuk.com/services">
+              <label>Landscaping Maintenance UK provide a wide range of (115 chars)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/contact">
+              <label>Landscape Maintenance UK can be contacted by phone (95 chars)</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="core/canonical" severity="warning">
+        <name>Canonical URL</name>
+        <description>Validates canonical URL presence and format</description>
+        <solution>Canonical URLs tell search engines which version of a page is the &quot;master&quot; copy, preventing duplicate content issues. Every page should specify a canonical URL, typically pointing to itself. Add a &lt;link rel=&quot;canonical&quot; href=&quot;...&quot;&gt; tag in the head section. Use absolute URLs and ensure consistency (with or without trailing slash, www vs non-www). For paginated content, point to the main page or use rel=&quot;prev/next&quot;.</solution>
+        <check name="canonical" status="warn">
+          <message>Missing canonical URL</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="core/og-tags" severity="warning">
+        <name>Open Graph Tags</name>
+        <description>Validates Open Graph meta tags for social sharing</description>
+        <solution>Open Graph tags control how your content appears when shared on Facebook, LinkedIn, and other platforms. Required tags: og:title, og:description, og:image, og:url, and og:type. Add OG tags in your page head. Use images at least 1200x630 pixels for best display. Keep og:title under 60 characters and og:description under 200. Test shares using Facebook&apos;s Sharing Debugger tool.</solution>
+        <check name="og-title" status="warn">
+          <message>Missing og:title</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+        <check name="og-description" status="warn">
+          <message>Missing og:description</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+        <check name="og-image" status="warn">
+          <message>Missing og:image - social shares will lack imagery</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="core/title-unique" severity="warning">
+        <name>Title Uniqueness</name>
+        <description>Checks that page titles are unique across the site</description>
+        <solution>Each page should have a unique title that accurately describes its content. Duplicate titles confuse search engines and users about which page to display. Use a pattern like &apos;Page Topic | Brand Name&apos; to ensure uniqueness. CMS often generate duplicate titles - audit and customize them.</solution>
+        <check name="title-unique" status="warn">
+          <message>1 duplicate title(s) affecting 5 pages</message>
+          <items count="1">
+            <item id="landscape maintenance uk">
+              <label>&quot;landscape maintenance uk...&quot; (5 pages)</label>
+              <pageCount>5</pageCount>
+              <source-pages>
+                <page url="http://www.landscapemaintenanceuk.com/about"/>
+                <page url="http://www.landscapemaintenanceuk.com/contact"/>
+                <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+              </source-pages>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="core/twitter-cards" severity="info">
+        <name>Twitter Cards</name>
+        <description>Validates Twitter Card meta tags</description>
+        <solution>Twitter Cards enhance how links appear in tweets. The twitter:card meta tag specifies the card type (summary, summary_large_image, player, or app). Add twitter:card, twitter:title, twitter:description, and twitter:image tags. For large images, use summary_large_image with images at least 800x418 pixels. Validate using Twitter&apos;s Card Validator tool.</solution>
+        <check name="twitter-card" status="warn">
+          <message>No Twitter card or Open Graph tags for Twitter sharing</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+    </category>
+    <category name="Security" errors="10" warnings="3">
+      <rule id="security/https" severity="error">
+        <name>HTTPS</name>
+        <description>Checks for HTTPS usage</description>
+        <solution>HTTPS encrypts data between users and your server, protecting sensitive information. It&apos;s a ranking signal and required for many modern browser features. Migrate to HTTPS by obtaining an SSL certificate (free from Let&apos;s Encrypt). Update internal links to use https://. Set up 301 redirects from HTTP to HTTPS. Update your canonical URLs and sitemap. Check for mixed content warnings after migration.</solution>
+        <check name="https" status="fail">
+          <message>Page not served over HTTPS</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="security/csp" severity="warning">
+        <name>Content Security Policy</name>
+        <description>Checks for Content-Security-Policy header and validates directives</description>
+        <solution>CSP prevents XSS attacks by restricting which resources can load. Start with a report-only policy to identify issues. Key directives: default-src &apos;self&apos;, script-src (avoid &apos;unsafe-inline&apos;), img-src, style-src, frame-ancestors. Use nonces or hashes instead of &apos;unsafe-inline&apos; for scripts. Test thoroughly as strict CSP can break functionality.</solution>
+        <check name="csp-missing" status="warn">
+          <message>No Content-Security-Policy header</message>
+        </check>
+      </rule>
+      <rule id="security/x-frame-options" severity="warning">
+        <name>X-Frame-Options</name>
+        <description>Checks for clickjacking protection header</description>
+        <solution>X-Frame-Options prevents your site from being embedded in iframes, protecting against clickjacking attacks. Set: X-Frame-Options: DENY (no framing) or SAMEORIGIN (same origin only). For modern browsers, CSP frame-ancestors is preferred: Content-Security-Policy: frame-ancestors &apos;self&apos;. Use both for maximum compatibility.</solution>
+        <check name="x-frame-options" status="warn">
+          <message>No clickjacking protection</message>
+        </check>
+      </rule>
+      <rule id="security/form-captcha" severity="warning">
+        <name>Form CAPTCHA</name>
+        <description>Checks for CAPTCHA protection on public forms</description>
+        <solution>Add CAPTCHA protection (reCAPTCHA, Cloudflare Turnstile, hCaptcha, etc.) to public-facing forms to prevent spam and bot submissions. Contact forms, comment forms, newsletter signups, and registration forms are common targets for automated abuse. Modern CAPTCHA solutions like Turnstile offer invisible protection with minimal user friction.</solution>
+        <check name="form-captcha" status="warn">
+          <message>1 public form(s) without CAPTCHA</message>
+          <affected-pages count="1">
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+          </affected-pages>
+          <items count="1">
+            <item id="[action=&quot;contact&quot;]">
+            </item>
+          </items>
+        </check>
+      </rule>
+    </category>
+    <category name="Content" errors="0" warnings="12">
+      <rule id="content/duplicate-title" severity="warning">
+        <name>Duplicate Title</name>
+        <description>Checks for duplicate title tags across the site</description>
+        <solution>Each page should have a unique title tag that accurately describes its content. Duplicate titles confuse search engines about which page to rank and make your pages less distinguishable in search results. Use unique, descriptive titles that include relevant keywords. For similar pages (e.g., pagination), add differentiating elements like page numbers or category names.</solution>
+        <check name="duplicate-title" status="warn">
+          <message>1 duplicate title(s) found across 5 pages</message>
+          <items count="1">
+            <item id="landscape maintenance uk">
+              <label>&quot;landscape maintenance uk...&quot; (5 pages)</label>
+              <pageCount>5</pageCount>
+              <source-pages>
+                <page url="http://www.landscapemaintenanceuk.com/about"/>
+                <page url="http://www.landscapemaintenanceuk.com/contact"/>
+                <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+              </source-pages>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="content/duplicate-description" severity="warning">
+        <name>Duplicate Description</name>
+        <description>Checks for duplicate meta descriptions across the site</description>
+        <solution>Each page should have a unique meta description that summarizes its specific content. Duplicate descriptions reduce click-through rates and provide poor user experience in search results. Write unique, compelling descriptions for each page. For pages without unique content (like paginated results), consider using no description rather than a duplicate.</solution>
+        <check name="duplicate-description" status="warn">
+          <message>1 duplicate description(s) found across 2 pages</message>
+          <items count="1">
+            <item id="landscape maintenance uk is a landscaping maintenance compan">
+              <label>&quot;landscape maintenance uk is a landscapin...&quot; (2 pages)</label>
+              <pageCount>2</pageCount>
+              <source-pages>
+                <page url="http://www.landscapemaintenanceuk.com/about"/>
+                <page url="http://www.landscapemaintenanceuk.com/"/>
+              </source-pages>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="content/keyword-stuffing" severity="warning">
+        <name>Keyword Stuffing</name>
+        <description>Detects excessive keyword repetition in content</description>
+        <solution>Keyword stuffing is repeating words unnaturally to manipulate rankings. Search engines penalize this practice. Write naturally for users first. Use keywords where they fit naturally. Aim for 1-2% keyword density at most. Use synonyms and related terms instead of repeating the exact same phrase. Focus on providing value, not gaming algorithms.</solution>
+        <check name="keyword-stuffing" status="warn">
+          <message>1 word(s) may be overused</message>
+          <affected-pages count="8">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="1">
+            <item id="maintenance">
+              <label>&quot;maintenance&quot; (4.1%)</label>
+              <count>13</count>
+              <density>4.100946372239748</density>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="content/word-count" severity="warning">
+        <name>Word Count</name>
+        <description>Checks content length for thin content issues</description>
+        <solution>Pages with thin content (under 300 words) often struggle to rank well and are actively deindexed by Google since the June 2025 core update. Add more valuable, relevant content to thin pages—aim for at least 500 words for standard pages and 1000+ for in-depth articles. If a page can&apos;t be fleshed out, voluntarily noindex it or consolidate it into a more comprehensive resource. Trimming thin pages from your index is better than leaving low-value content for Google to penalize.</solution>
+        <check name="word-count" status="warn">
+          <message>Thin content: N words (min N)</message>
+          <affected-pages count="2">
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+          </affected-pages>
+          <items count="2">
+            <item id="http://www.landscapemaintenanceuk.com/services">
+              <label>Thin content: 299 words (min 300)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/contact">
+              <label>Thin content: 282 words (min 300)</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+    </category>
+    <category name="Images" errors="10" warnings="31">
+      <rule id="images/image-file-size" severity="error">
+        <name>Image File Size Too Large</name>
+        <description>Checks for image files that exceed recommended size limits</description>
+        <solution>Large images slow down page loads and impact Core Web Vitals. Compress oversized images, use modern formats (WebP/AVIF), and resize images to the display dimensions. Consider responsive images with srcset to serve smaller files on mobile.</solution>
+        <check name="image-file-size-warn" status="warn">
+          <message>1 image(s) exceed 200.0 KB</message>
+          <items count="1">
+            <item id="http://www.landscapemaintenanceuk.com/images/slider/02-overlay.png">
+              <sizeBytes>275336</sizeBytes>
+              <size>268.9 KB</size>
+              <status>200</status>
+              <contentType>image/png</contentType>
+              <source-pages>
+                <page url="http://www.landscapemaintenanceuk.com/about"/>
+                <page url="http://www.landscapemaintenanceuk.com/"/>
+                <page url="http://www.landscapemaintenanceuk.com/services"/>
+                <page url="http://www.landscapemaintenanceuk.com/contact"/>
+                <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+              </source-pages>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="images/alt-text" severity="warning">
+        <name>Image Alt Text</name>
+        <description>Validates image alt attributes</description>
+        <solution>Alt text describes images for screen readers and displays when images fail to load. It&apos;s essential for accessibility and helps with image search SEO. Add descriptive alt text to all meaningful images. Keep it concise (under 125 characters) but descriptive. For decorative images, use empty alt=&quot;&quot; to indicate they should be skipped by screen readers. Avoid keyword stuffing in alt text.</solution>
+        <check name="alt-text-missing" status="fail">
+          <message>N image(s) missing alt text</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="7">
+            <item id="http://www.landscapemaintenanceuk.com/images/logo.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/telephone.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider-arrow.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider-arrow.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider/02-overlay.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider/03-overlay.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/map.jpg">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="images/offscreen-lazy" severity="warning">
+        <name>Offscreen Image Lazy Loading</name>
+        <description>Checks if offscreen images use lazy loading</description>
+        <solution>Add loading=&apos;lazy&apos; to images below the fold to defer loading until needed. This reduces initial page load time and saves bandwidth. Exception: Don&apos;t lazy-load LCP image or above-the-fold content. Use loading=&apos;eager&apos; for critical images.</solution>
+        <check name="offscreen-images-not-lazy" status="warn">
+          <message>N below-fold image(s) without lazy loading</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="11">
+            <item id="slider-arrow.png">
+            </item>
+            <item id="02-overlay.png">
+            </item>
+            <item id="03-overlay.png">
+            </item>
+            <item id="map.jpg">
+            </item>
+            <item id="commercial-grounds-maintenance.gif">
+            </item>
+            <item id="grounds-maintenance.jpg">
+            </item>
+            <item id="residential-grounds-maintenance.gif">
+            </item>
+            <item id="residential-grounds-maintenance.jpg">
+            </item>
+            <item id="garden-grounds-landscaping.gif">
+            </item>
+            <item id="garden-landscaping.jpg">
+            </item>
+            <item id="grass-cutting.gif">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="images/dimensions" severity="warning">
+        <name>Image Dimensions</name>
+        <description>Checks for width/height attributes (prevents CLS)</description>
+        <solution>Specifying width and height attributes prevents Cumulative Layout Shift (CLS) by reserving space before images load. Add width and height attributes to img tags matching the image&apos;s intrinsic dimensions. Use CSS for responsive sizing if needed. For responsive images, the aspect ratio from width/height prevents layout shifts even when CSS overrides the actual size.</solution>
+        <check name="image-dimensions" status="warn">
+          <message>N image(s) missing width/height (causes CLS)</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="7">
+            <item id="http://www.landscapemaintenanceuk.com/images/logo.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/telephone.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider-arrow.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider-arrow.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider/02-overlay.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/slider/03-overlay.png">
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/images/map.jpg">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="images/optimized" severity="info">
+        <name>Image Optimization</name>
+        <description>Checks for image optimization indicators</description>
+        <solution>Optimize images to reduce file sizes without visible quality loss. Use tools like Squoosh, ImageOptim, or TinyPNG. Consider using an image CDN (Cloudinary, Imgix, Cloudflare Images) for automatic optimization and responsive delivery. Modern formats (WebP, AVIF) offer 25-50% better compression.</solution>
+        <check name="image-optimization-needed" status="warn">
+          <message>Images may not be optimized - consider using an image CDN</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+    </category>
+    <category name="Performance" errors="30" warnings="92">
+      <rule id="perf/js-file-size" severity="error">
+        <name>JavaScript File Size Too Large</name>
+        <description>Checks for JavaScript files that exceed recommended size limits</description>
+        <solution>Large JavaScript files block the main thread and delay interactivity. Code-split bundles into smaller chunks, tree-shake unused exports, lazy-load non-critical scripts, and defer or async load third-party scripts. Use dynamic imports for route-based splitting.</solution>
+        <check name="js-file-size-warn" status="warn">
+          <message>1 JS file(s) exceed 250.0 KB</message>
+          <items count="1">
+            <item id="http://www.landscapemaintenanceuk.com/js/script.js">
+              <sizeBytes>348372</sizeBytes>
+              <size>340.2 KB</size>
+              <status>200</status>
+              <contentType>application/javascript</contentType>
+              <source-pages>
+                <page url="http://www.landscapemaintenanceuk.com/about"/>
+                <page url="http://www.landscapemaintenanceuk.com/"/>
+                <page url="http://www.landscapemaintenanceuk.com/services"/>
+                <page url="http://www.landscapemaintenanceuk.com/contact"/>
+                <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+              </source-pages>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/lcp-hints" severity="warning">
+        <name>LCP Optimization Hints</name>
+        <description>Checks for Largest Contentful Paint optimization opportunities</description>
+        <solution>LCP measures when the largest content element becomes visible. Optimize by: 1) Preload your LCP image with &lt;link rel=&apos;preload&apos; as=&apos;image&apos;&gt;. 2) Don&apos;t use loading=&apos;lazy&apos; on above-fold images as it delays loading. 3) Minimize render-blocking CSS/JS in &lt;head&gt;. 4) Use modern image formats (WebP/AVIF) for faster loading. 5) Consider using fetchpriority=&apos;high&apos; on the LCP image.</solution>
+        <check name="lcp-preload" status="warn">
+          <message>3 potential LCP image(s) without preload</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="3">
+            <item id="/images/logo.png">
+            </item>
+            <item id="/images/telephone.png">
+            </item>
+            <item id="images/slider-arrow.png">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/cls-hints" severity="warning">
+        <name>CLS Optimization Hints</name>
+        <description>Checks for Cumulative Layout Shift prevention</description>
+        <solution>CLS measures visual stability - how much content shifts during load. Prevent layout shifts by: 1) Always set width and height attributes on images and iframes. 2) Reserve space for ads and embeds with CSS min-height. 3) Use CSS aspect-ratio for responsive media. 4) Avoid inserting content above existing content. 5) Use transform animations instead of properties that trigger layout.</solution>
+        <check name="cls-images" status="fail">
+          <message>N image(s) without width/height (CLS risk)</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="7">
+            <item id="/images/logo.png">
+            </item>
+            <item id="/images/telephone.png">
+            </item>
+            <item id="images/slider-arrow.png">
+            </item>
+            <item id="images/slider-arrow.png">
+            </item>
+            <item id="/images/slider/02-overlay.png">
+            </item>
+            <item id="/images/slider/03-overlay.png">
+            </item>
+            <item id="/images/map.jpg">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/compression" severity="warning">
+        <name>Compression</name>
+        <description>Checks for Gzip or Brotli compression</description>
+        <solution>Enable Gzip or Brotli compression on your server to reduce transfer sizes by 60-90%. Most web servers support this via configuration. For nginx: &apos;gzip on;&apos; For Apache: &apos;AddOutputFilterByType DEFLATE text/html&apos;. Brotli provides better compression than Gzip for text content.</solution>
+        <check name="compression" status="fail">
+          <message>No compression detected (NKB uncompressed)</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="10">
+            <item id="http://www.landscapemaintenanceuk.com/about">
+              <label>No compression detected (11KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/">
+              <label>No compression detected (14KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/services">
+              <label>No compression detected (10KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/contact">
+              <label>No compression detected (13KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton">
+              <label>No compression detected (12KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton">
+              <label>No compression detected (11KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton">
+              <label>No compression detected (12KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/landscaping-northampton">
+              <label>No compression detected (11KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grass-management-northampton">
+              <label>No compression detected (11KB uncompressed)</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/testimonials">
+              <label>No compression detected (10KB uncompressed)</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/css-file-size" severity="error">
+        <name>CSS File Size Too Large</name>
+        <description>Checks for CSS files that exceed recommended size limits</description>
+        <solution>Large CSS files slow down rendering and increase bandwidth. Split large stylesheets into smaller chunks, remove unused selectors, and minify CSS. Consider critical CSS inlining for above-the-fold styles and lazy-loading non-critical CSS.</solution>
+        <check name="css-file-size-warn" status="warn">
+          <message>1 CSS file(s) exceed 150.0 KB</message>
+          <items count="1">
+            <item id="http://www.landscapemaintenanceuk.com/css/vendor.css">
+              <sizeBytes>170259</sizeBytes>
+              <size>166.3 KB</size>
+              <status>200</status>
+              <contentType>text/css</contentType>
+              <source-pages>
+                <page url="http://www.landscapemaintenanceuk.com/about"/>
+                <page url="http://www.landscapemaintenanceuk.com/"/>
+                <page url="http://www.landscapemaintenanceuk.com/services"/>
+                <page url="http://www.landscapemaintenanceuk.com/contact"/>
+                <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+                <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+              </source-pages>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/render-blocking" severity="warning">
+        <name>Render-Blocking Resources</name>
+        <description>Checks for render-blocking CSS and JavaScript</description>
+        <solution>Render-blocking resources delay First Contentful Paint (FCP) and LCP. Fix by: 1) Inline critical CSS for above-fold content. 2) Load non-critical CSS with media=&apos;print&apos; onload=&apos;this.media=all&apos;. 3) Add async or defer to non-critical scripts. 4) Move scripts to end of body when possible. 5) Use &lt;link rel=&apos;preload&apos;&gt; for critical resources. Consider tools like Critical to extract critical CSS.</solution>
+        <check name="render-blocking" status="warn">
+          <message>4 render-blocking resources</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="4">
+            <item id="/css/vendor.css">
+            </item>
+            <item id="/css/style.css">
+            </item>
+            <item id="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic">
+            </item>
+            <item id="/js/script.js">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/critical-request-chains" severity="warning">
+        <name>Critical Request Chains</name>
+        <description>Identifies chains of dependent resources that delay rendering</description>
+        <solution>Critical request chains are sequences of dependent network requests that must complete before the page can render. Reduce chain depth by: 1) Inlining critical CSS instead of linking external files. 2) Adding async or defer to non-critical scripts. 3) Avoiding CSS @import — use &lt;link&gt; tags instead. 4) Using &lt;link rel=&apos;preload&apos;&gt; for critical resources. 5) Reducing the number of render-blocking resources in &lt;head&gt;.</solution>
+        <check name="critical-request-chains" status="warn">
+          <message>4 critical request chain(s) found</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="4">
+            <item id="CSS: /css/vendor.css">
+            </item>
+            <item id="CSS: /css/style.css">
+            </item>
+            <item id="CSS: http://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic">
+            </item>
+            <item id="JS: /js/script.js">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/font-loading" severity="warning">
+        <name>Font Loading</name>
+        <description>Checks for font loading best practices</description>
+        <solution>Optimize font loading to prevent FOIT (Flash of Invisible Text) and FOUT (Flash of Unstyled Text): 1) Use font-display: swap in @font-face to show fallback text immediately. 2) Preconnect to font CDNs with &lt;link rel=&apos;preconnect&apos;&gt;. 3) Use WOFF2 format for best compression. 4) Self-host fonts when possible for faster loading. 5) Limit font families and weights to reduce downloads.</solution>
+        <check name="font-preconnect" status="warn">
+          <message>Using Google Fonts without preconnect</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="perf/js-libraries" severity="warning">
+        <name>JS Libraries</name>
+        <description>Detects JavaScript libraries and checks for known vulnerabilities</description>
+        <solution>Keep JavaScript libraries updated to their latest versions. Outdated libraries may contain security vulnerabilities that attackers can exploit. Consider replacing large libraries like jQuery with modern vanilla JavaScript or smaller alternatives. Use npm audit or Snyk to monitor dependencies for vulnerabilities.</solution>
+        <check name="js-libraries-vulnerable" status="fail">
+          <message>1 library/libraries with known vulnerabilities</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="1">
+            <item id="jQuery v1.11.3">
+              <label>XSS vulnerability in jQuery.htmlPrefilter</label>
+              <cve>CVE-2020-11022</cve>
+            </item>
+          </items>
+        </check>
+        <check name="js-libraries-detected" status="warn">
+          <message>1 JavaScript library/libraries detected</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="1">
+            <item id="jQuery v1.11.3">
+              <label>vulnerable</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/unminified-js" severity="warning">
+        <name>Unminified JavaScript</name>
+        <description>Detects unminified JavaScript that could be optimized</description>
+        <solution>Minify JavaScript to reduce file size and improve load times. Use build tools like Terser, esbuild, or UglifyJS. Most bundlers (Webpack, Vite, Rollup) minify automatically in production. Minification shortens variable names, removes whitespace, and dead code.</solution>
+        <check name="unminified-js" status="warn">
+          <message>1 JavaScript file(s) appear unminified</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="1">
+            <item id="script.js">
+              <label>340.2KB, ~128.8KB savings</label>
+              <reason>high newlines (2.36%), 265 comments, formatted code, excessive whitespace</reason>
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/animated-content" severity="warning">
+        <name>Animated Content</name>
+        <description>Checks for large GIFs that could be converted to video</description>
+        <solution>Convert large animated GIFs to video formats (MP4, WebM) for 50-90% smaller files. Use &lt;video autoplay loop muted playsinline&gt; for GIF-like behavior. Tools: ffmpeg, gif2webm, or Cloudinary can automate conversion. Modern video codecs are far more efficient than GIF for animation.</solution>
+        <check name="animated-gifs" status="warn">
+          <message>4 GIF image(s) found - consider video format</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="4">
+            <item id="commercial-grounds-maintenance.gif">
+            </item>
+            <item id="residential-grounds-maintenance.gif">
+            </item>
+            <item id="garden-grounds-landscaping.gif">
+            </item>
+            <item id="grass-cutting.gif">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="perf/cache-headers" severity="warning">
+        <name>Cache Headers</name>
+        <description>Checks Cache-Control header configuration</description>
+        <solution>Use Cache-Control headers to enable browser caching. For static assets (CSS, JS, images), set long max-age (1 year) with immutable when using hashed filenames. For HTML, use shorter max-age or no-cache with revalidation. Example: &apos;Cache-Control: public, max-age=31536000, immutable&apos; for versioned assets.</solution>
+        <check name="cache-headers-missing" status="warn">
+          <message>No caching headers found</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="perf/http2" severity="info">
+        <name>HTTP/2</name>
+        <description>Checks for HTTP/2 protocol support</description>
+        <solution>HTTP/2 enables multiplexing, header compression, and server push for faster page loads. Most modern web servers and CDNs support HTTP/2 out of the box. Requires HTTPS. Check your server/CDN documentation to enable it. HTTP/3 (QUIC) provides even better performance.</solution>
+        <check name="http2-https-required" status="warn">
+          <message>HTTP/2 requires HTTPS</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="10">
+            <item id="http://www.landscapemaintenanceuk.com/about">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/services">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/contact">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/landscaping-northampton">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grass-management-northampton">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/testimonials">
+              <label>HTTP/2 requires HTTPS</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+    </category>
+    <category name="Accessibility" errors="23" warnings="41">
+      <rule id="a11y/aria-command-name" severity="error">
+        <name>ARIA Command Name</name>
+        <description>Checks that command elements have accessible names</description>
+        <solution>Command elements (buttons, links, menu items) must have accessible names. Add text content, aria-label, aria-labelledby, or title attribute. For icon-only buttons, use aria-label to describe the action (e.g., aria-label=&apos;Close&apos;).</solution>
+        <check name="aria-command-name" status="fail">
+          <message>1 command element(s) without accessible names</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="1">
+            <item id="a[href=&quot;#&quot;]">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="a11y/aria-input-field-name" severity="error">
+        <name>ARIA Input Field Name</name>
+        <description>Checks that input fields have accessible names</description>
+        <solution>All input fields need accessible names. Best options: 1) Use &lt;label for=&apos;inputId&apos;&gt;. 2) Use aria-label or aria-labelledby. 3) Wrap input in &lt;label&gt;. Placeholder alone is not sufficient as it disappears when typing.</solution>
+        <check name="aria-input-field-name" status="fail">
+          <message>1 input field(s) without accessible names</message>
+          <affected-pages count="1">
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+          </affected-pages>
+          <items count="1">
+            <item id="textarea[name=&quot;message&quot;]">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="a11y/html-lang-valid" severity="error">
+        <name>HTML Lang Valid</name>
+        <description>Checks that the html lang attribute has a valid language code</description>
+        <solution>The lang attribute on &lt;html&gt; should be a valid BCP 47 language tag. Use two-letter ISO 639-1 codes like &apos;en&apos; for English, &apos;es&apos; for Spanish, &apos;fr&apos; for French. You can add region subtags like &apos;en-US&apos; or &apos;en-GB&apos;. This helps screen readers use correct pronunciation.</solution>
+        <check name="html-has-lang" status="fail">
+          <message>HTML element missing lang attribute</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="a11y/list-structure" severity="error">
+        <name>List Structure</name>
+        <description>Checks that ul and ol elements contain only li elements</description>
+        <solution>Lists (&lt;ul&gt; and &lt;ol&gt;) should only contain &lt;li&gt; elements as direct children. For custom components, you can also use elements with role=&apos;listitem&apos;. Move other content inside &lt;li&gt; elements.</solution>
+        <check name="list-structure" status="fail">
+          <message>1 list(s) with invalid child elements</message>
+          <affected-pages count="1">
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+          </affected-pages>
+          <items count="1">
+            <item id="ul">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="a11y/form-labels" severity="error">
+        <name>Form Labels</name>
+        <description>Checks that form inputs have associated labels</description>
+        <solution>Every form input needs an accessible label for screen readers. Options: 1) Use &lt;label for=&apos;inputId&apos;&gt;Label&lt;/label&gt; with matching id. 2) Wrap the input inside &lt;label&gt;Label &lt;input&gt;&lt;/label&gt;. 3) Use aria-label or aria-labelledby for inputs where visible labels aren&apos;t feasible. Placeholders are not sufficient substitutes for labels. Hidden inputs, submit buttons, and image buttons don&apos;t need labels.</solution>
+        <check name="form-labels" status="fail">
+          <message>2 form input(s) without labels</message>
+          <affected-pages count="1">
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+          </affected-pages>
+          <items count="2">
+            <item id="phone">
+            </item>
+            <item id="message">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="a11y/form-field-multiple-labels" severity="warning">
+        <name>Multiple Labels</name>
+        <description>Checks that form fields don&apos;t have multiple labels</description>
+        <solution>Form inputs should have only one associated label. Multiple labels can confuse assistive technology. If you need multiple text descriptions, use aria-describedby for supplementary text instead of multiple labels.</solution>
+        <check name="form-field-multiple-labels" status="warn">
+          <message>1 input(s) with multiple labels</message>
+          <affected-pages count="1">
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+          </affected-pages>
+          <items count="1">
+            <item id="email (2 labels)">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="a11y/landmark-one-main" severity="warning">
+        <name>One Main Landmark</name>
+        <description>Checks that the page has exactly one main landmark</description>
+        <solution>Each page should have exactly one &lt;main&gt; element or element with role=&apos;main&apos;. This helps screen reader users quickly navigate to the primary content. Multiple main landmarks confuse navigation. Use &lt;aside&gt;, &lt;nav&gt;, or other landmarks for secondary content.</solution>
+        <check name="landmark-one-main" status="warn">
+          <message>Page has no main landmark</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="a11y/image-redundant-alt" severity="warning">
+        <name>Redundant Image Alt</name>
+        <description>Checks that image alt text is not redundant with surrounding text</description>
+        <solution>Image alt text should not start with &apos;image of&apos;, &apos;photo of&apos;, &apos;picture of&apos;, etc. Screen readers already announce that it&apos;s an image. Alt text should describe the content or function, not state the obvious. Also avoid duplicating adjacent text in the alt.</solution>
+        <check name="image-redundant-alt" status="warn">
+          <message>5 image(s) with redundant alt text</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="5">
+            <item id="alt=&quot;Commercial Grounds Maintenance&quot; matches filename">
+            </item>
+            <item id="alt=&quot;Grounds Maintenance&quot; matches filename">
+            </item>
+            <item id="alt=&quot;Residential Grounds Maintenance&quot; matches filename">
+            </item>
+            <item id="alt=&quot;Garden Landscaping&quot; matches filename">
+            </item>
+            <item id="alt=&quot;Grass Cutting&quot; matches filename">
+            </item>
+          </items>
+        </check>
+      </rule>
+      <rule id="a11y/skip-link" severity="warning">
+        <name>Skip Link</name>
+        <description>Checks for bypass mechanisms for keyboard navigation</description>
+        <solution>Skip links allow keyboard users to bypass repetitive navigation and jump directly to main content. Add a hidden link at the very beginning of your page: &lt;a href=&apos;#main-content&apos; class=&apos;skip-link&apos;&gt;Skip to main content&lt;/a&gt;. Style it to become visible on focus. Ensure the target (#main-content) has tabindex=&apos;-1&apos; if it&apos;s not naturally focusable. Alternative: use landmark roles like &lt;main&gt; which screen readers can navigate to directly.</solution>
+        <check name="skip-link" status="warn">
+          <message>No bypass mechanism for repetitive content</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="a11y/landmark-regions" severity="info">
+        <name>Landmark Regions</name>
+        <description>Checks for proper landmark regions (main, nav, footer)</description>
+        <solution>Landmark regions help screen reader users navigate page structure. Use semantic HTML5 elements: &lt;main&gt; for primary content, &lt;nav&gt; for navigation, &lt;header&gt; for page header, &lt;footer&gt; for footer, &lt;aside&gt; for sidebars, and &lt;section&gt;/&lt;article&gt; for content sections. Alternatively, use ARIA roles: role=&apos;main&apos;, role=&apos;navigation&apos;, etc. Each page should have exactly one &lt;main&gt; element.</solution>
+        <check name="landmark-main" status="warn">
+          <message>No &lt;main&gt; landmark found</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+    </category>
+    <category name="Mobile" errors="10" warnings="10">
+      <rule id="mobile/viewport" severity="error">
+        <name>Viewport Meta</name>
+        <description>Checks for proper viewport meta tag</description>
+        <solution>The viewport meta tag is essential for responsive design. Use: &lt;meta name=&apos;viewport&apos; content=&apos;width=device-width, initial-scale=1&apos;&gt;. This ensures proper scaling on mobile devices. Without it, mobile browsers render at desktop width and zoom out. Required for mobile-first indexing.</solution>
+        <check name="viewport" status="fail">
+          <message>Missing viewport meta tag</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+      <rule id="mobile/font-size" severity="warning">
+        <name>Font Size</name>
+        <description>Checks for readable font sizes on mobile</description>
+        <solution>Body text should be at least 16px for readability without zooming. Smaller fonts strain eyes on mobile. Use relative units (rem, em) for scalability. Test on actual devices. Google&apos;s mobile-friendly test flags font sizes under 12px. Line height should be at least 1.5 for readability.</solution>
+        <check name="font-size" status="warn">
+          <message>1 element(s) with font-size under 12px</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+          <items count="10">
+            <item id="http://www.landscapemaintenanceuk.com/about">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/services">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/contact">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/landscaping-northampton">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/grass-management-northampton">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+            <item id="http://www.landscapemaintenanceuk.com/testimonials">
+              <label>1 element(s) with font-size under 12px</label>
+            </item>
+          </items>
+        </check>
+      </rule>
+    </category>
+    <category name="Internationalization" errors="0" warnings="10">
+      <rule id="i18n/lang-attribute" severity="warning">
+        <name>Lang Attribute</name>
+        <description>Checks for lang attribute on html element</description>
+        <solution>The lang attribute on the html element declares the page&apos;s language, helping browsers, screen readers, and search engines process content correctly. Add lang=&quot;xx&quot; to your html tag using a valid ISO 639-1 code (e.g., &quot;en&quot;, &quot;es&quot;, &quot;fr&quot;). For regional variants, use lang=&quot;en-US&quot; or &quot;en-GB&quot;. This improves accessibility and helps search engines serve your content to the right audience.</solution>
+        <check name="lang-attribute" status="warn">
+          <message>Missing lang attribute on &lt;html&gt; element</message>
+          <affected-pages count="10">
+            <page url="http://www.landscapemaintenanceuk.com/about"/>
+            <page url="http://www.landscapemaintenanceuk.com/"/>
+            <page url="http://www.landscapemaintenanceuk.com/services"/>
+            <page url="http://www.landscapemaintenanceuk.com/contact"/>
+            <page url="http://www.landscapemaintenanceuk.com/grounds-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/residential-ground-maintenance-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/town-and-parish-council-services-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/landscaping-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/grass-management-northampton"/>
+            <page url="http://www.landscapemaintenanceuk.com/testimonials"/>
+          </affected-pages>
+        </check>
+      </rule>
+    </category>
+    <category name="E-E-A-T" errors="0" warnings="1">
+      <rule id="eeat/privacy-policy" severity="warning">
+        <name>Privacy Policy</name>
+        <description>Checks for privacy policy page linked from footer</description>
+        <solution>A privacy policy is required by law in many jurisdictions (GDPR, CCPA) and signals trustworthiness. Link it from your footer on every page. Cover: what data you collect, how you use it, third-party sharing, user rights, and contact for privacy concerns. Keep it updated when practices change.</solution>
+        <check name="privacy-policy" status="warn">
+          <message>No Privacy Policy page found</message>
+        </check>
+      </rule>
+    </category>
+    <category name="Legal Compliance" errors="0" warnings="1">
+      <rule id="legal/privacy-policy" severity="warning">
+        <name>Privacy Policy</name>
+        <description>Checks for privacy policy link presence</description>
+        <solution>A privacy policy is legally required in many jurisdictions (GDPR, CCPA). Link to your privacy policy from every page, typically in the footer. The policy should explain what data you collect, how it&apos;s used, and user rights. Consider using schema.org markup to identify the policy page.</solution>
+        <check name="privacy-policy" status="warn">
+          <message>No privacy policy link found across site</message>
+        </check>
+      </rule>
+    </category>
+  </issues>
+</squirrelscan-audit>
