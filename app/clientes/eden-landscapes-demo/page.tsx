@@ -14,8 +14,8 @@ export default function EdenHome87() {
       <section className="relative h-[85vh] flex items-center justify-center bg-[#183102]">
         <div className="absolute inset-0 opacity-40">
           <Image
-            src="http://edenlandscapes.uk.net/images/header.jpg"
-            alt="Lush Garden by Eden Landscapes"
+            src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=2000"
+            alt="Premium Landscaped Garden by Eden Landscapes"
             fill
             className="object-cover"
             priority
@@ -55,8 +55,8 @@ export default function EdenHome87() {
         <div className="order-2 lg:order-1">
           <div className="relative aspect-square md:aspect-video rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="http://edenlandscapes.uk.net/images/gallery_slider4.jpg"
-              alt="Garden landscaping process"
+              src="https://images.unsplash.com/photo-1589923188900-85dae4753549?auto=format&fit=crop&q=80&w=1500"
+              alt="Artisanal landscaping detail"
               fill
               className="object-cover"
             />
@@ -103,17 +103,17 @@ export default function EdenHome87() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ServiceCard 
-              image="http://edenlandscapes.uk.net/images/services.gif"
+              image="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&q=80&w=800"
               title="Fencing & Decking"
               description="Durable fencing systems and natural wood decking designed to stand the test of time."
             />
             <ServiceCard 
-              image="http://edenlandscapes.uk.net/images/gardendesign.gif"
+              image="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&q=80&w=800"
               title="Garden Design"
               description="Full consultancy and detailed plans for your ideal outdoor living space."
             />
             <ServiceCard 
-              image="http://edenlandscapes.uk.net/images/projectgallery.gif"
+              image="https://images.unsplash.com/photo-1599110906805-a8669e39ce59?auto=format&fit=crop&q=80&w=800"
               title="Project Gallery"
               description="Get inspired by our collection of completed works across the region."
             />

@@ -13,7 +13,7 @@ export default function GardenDesign87() {
       {/* Hero Design */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <Image 
-          src="http://edenlandscapes.uk.net/images/gallery_slider2.jpg" 
+          src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=1500" 
           alt="Landscaping Project Sketch" 
           fill 
           className="object-cover grayscale"
@@ -90,7 +90,7 @@ export default function GardenDesign87() {
             </div>
             <div className="relative aspect-video lg:aspect-square rounded-3xl overflow-hidden shadow-2xl skew-y-2">
               <Image 
-                src="http://edenlandscapes.uk.net/images/gallery_slider3.jpg" 
+                src="https://images.unsplash.com/photo-1599110906805-a8669e39ce59?auto=format&fit=crop&q=80&w=1500" 
                 alt="Planned Garden Result" 
                 fill 
                 className="object-cover"

@@ -27,7 +27,7 @@ export default function Servicos87() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
             <Image 
-              src="http://edenlandscapes.uk.net/images/projectgallery1.jpg" 
+              src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&q=80&w=1000" 
               alt="High Quality Fencing and Turfing" 
               fill 
               className="object-cover"
@@ -72,7 +72,7 @@ export default function Servicos87() {
           </div>
           <div className="order-1 lg:order-2 relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
             <Image 
-              src="http://edenlandscapes.uk.net/images/projectgallery2.jpg" 
+              src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=1000" 
               alt="Botanical Design and Planting" 
               fill 
               className="object-cover"
@@ -84,7 +84,7 @@ export default function Servicos87() {
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
             <Image 
-              src="http://edenlandscapes.uk.net/images/projectgallery3.jpg" 
+              src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&q=80&w=1000" 
               alt="Garden Wood Structures" 
               fill 
               className="object-cover"

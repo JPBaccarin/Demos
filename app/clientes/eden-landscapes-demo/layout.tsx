@@ -18,7 +18,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Eden Landscapes | Premium Garden Landscaping in Whitley Bay",
   description: "Specialists in garden design, fencing, turfing, and custom structures since 2007. Transforming outdoor spaces into natural retreats.",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 /**
