@@ -127,7 +127,7 @@ export default function HomePage() {
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group border-8 border-white h-[500px]">
               <Image 
-                src="http://www.landscapemaintenanceuk.com/images/slider/02-bg.jpg"
+                src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=2070"
                 alt="Team at work"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl skew-y-1">
               <Image 
-                src="http://www.landscapemaintenanceuk.com/images/slider/02-bg.jpg"
+                src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=2070"
                 alt="Team working"
                 fill
                 className="object-cover"

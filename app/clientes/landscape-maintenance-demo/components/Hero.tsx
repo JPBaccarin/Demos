@@ -18,17 +18,17 @@ export default function Hero() {
 
   const slides = [
     {
-      image: "http://www.landscapemaintenanceuk.com/images/slider/02-bg.jpg",
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070",
       title: "Excellence in Commercial Maintenance",
       subtitle: "Professional care for your business's outdoor spaces with dedication and expertise.",
     },
     {
-      image: "http://www.landscapemaintenanceuk.com/images/slider/03-bg.jpg",
+      image: "https://images.unsplash.com/photo-1558904541-efa8c1965f1e?auto=format&fit=crop&q=80&w=2070",
       title: "Your Garden, Our Passion",
       subtitle: "Complete residential services to keep your home grounds looking impeccable year-round.",
     },
     {
-      image: "http://www.landscapemaintenanceuk.com/images/slider/04-bg.jpg",
+      image: "https://images.unsplash.com/photo-1590483734747-3944723b3074?auto=format&fit=crop&q=80&w=1740",
       title: "Hardscaping & Fencing Solutions",
       subtitle: "Transforming outdoor spaces into functional and aesthetic environments.",
     },
